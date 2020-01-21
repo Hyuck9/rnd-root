@@ -1,0 +1,8 @@
+# Project exclude paths
+/.gradle/
+/rnd-batch/build/
+/rnd-batch/build/classes/java/main/
+/rnd-common/build/
+/rnd-common/build/classes/java/main/
+/rnd-lib-database/build/
+/rnd-lib-database/build/classes/java/main/
