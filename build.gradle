@@ -38,6 +38,7 @@ project(':rnd-batch') {
     dependencies {
         compile project(':rnd-common')
         compile project(':rnd-lib-database')
+        compile project(':rnd-lib-rabbit')
     }
 }
 
