@@ -5,6 +5,8 @@ import com.nexmore.rnd.common.config.PropertyPlaceHolderConfiguration;
 import com.nexmore.rnd.rabbit.message.converter.RndMessageConverter;
 import com.nexmore.rnd.rabbit.queue.RouteKeyInterface;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -82,6 +84,17 @@ public class RabbitCommonConfiguration {
 
 		template.setRetryTemplate(retryTemplate);
 		return template;
+	}
+
+	@Bean
+	SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
+		SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+		factory.setConnectionFactory(rabbitConnectionFactory());
+		factory.setConcurrentConsumers(3);
+		factory.setMaxConcurrentConsumers(10);
+		factory.setDefaultRequeueRejected(true);
+		factory.setAcknowledgeMode(AcknowledgeMode.AUTO);
+		return factory;
 	}
 
 }
