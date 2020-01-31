@@ -5,6 +5,7 @@ import com.nexmore.rnd.common.domain.message.MessageHeaders;
 import com.nexmore.rnd.common.exception.AbstractRndException;
 import com.nexmore.rnd.common.exception.RndBizException;
 import com.nexmore.rnd.common.exception.RndSysException;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -67,6 +68,7 @@ public class RabbitListenerTemplate {
 	 * 에러 응답 클래스
 	 */
 	@Data
+	@AllArgsConstructor
 	public static class ErrorResponse {
 		private String routeKey;
 		private BaseMessage baseMessage;
