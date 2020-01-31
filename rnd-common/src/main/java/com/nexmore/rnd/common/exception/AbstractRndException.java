@@ -5,7 +5,7 @@ import com.nexmore.rnd.common.domain.message.BaseMessage;
 
 public abstract class AbstractRndException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -8248969451002181023L;
 
 	/**
 	 * 상태 코드
@@ -23,7 +23,7 @@ public abstract class AbstractRndException extends RuntimeException {
 	private BaseMessage rndMessage;
 
 	/**
-	 * LBS 공통 Exception 추상화 메소드
+	 * RND 공통 Exception 추상화 메소드
 	 * @param status		상태 코드
 	 * @param reason		실패 사유
 	 */
@@ -46,7 +46,7 @@ public abstract class AbstractRndException extends RuntimeException {
 	}
 
 	/**
-	 * LBS 공통 Exception 추상화 메소드
+	 * RND 공통 Exception 추상화 메소드
 	 * @param status		상태 코드
 	 * @param reason		실패 사유
 	 * @param rndMessage	RND 메시지
@@ -59,7 +59,7 @@ public abstract class AbstractRndException extends RuntimeException {
 	}
 
 	/**
-	 * LBS 공통 Exception 추상화 메소드
+	 * RND 공통 Exception 추상화 메소드
 	 * @param status		상태 코드
 	 * @param reason		실패 사유
 	 * @param rndMessage	RND 메시지
