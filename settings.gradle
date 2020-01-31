@@ -3,4 +3,5 @@ include 'rnd-lib-database'
 include 'rnd-batch'
 include 'rnd-common'
 include 'rnd-lib-rabbit'
+include 'rnd-service-master'
 

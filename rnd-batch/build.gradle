@@ -7,8 +7,6 @@ jar {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    compile(project(':rnd-common'))
-    compile(project(':rnd-lib-database'))
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

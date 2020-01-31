@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.3.RELEASE'
+        springBootVersion = '2.2.4.RELEASE'
     }
     repositories {
         mavenCentral()
@@ -42,6 +42,14 @@ project(':rnd-batch') {
     }
 }
 
+project(':rnd-service-master') {
+    dependencies {
+        compile project(':rnd-common')
+        compile project(':rnd-lib-database')
+        compile project(':rnd-lib-rabbit')
+    }
+}
+
 project(':rnd-lib-database') {
     dependencies {
         compile project(':rnd-common')
@@ -53,26 +61,3 @@ project(':rnd-lib-rabbit') {
         compile project(':rnd-common')
     }
 }
-
-
-
-
-
-//
-//
-//plugins {
-//    id 'java'
-//}
-//
-//group 'com.nexmore.rnd'
-//version '1.0.0-SNAPSHOT'
-//
-//sourceCompatibility = 1.8
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//    testCompile group: 'junit', name: 'junit', version: '4.12'
-//}
