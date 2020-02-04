@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.nexmore.rnd.common.domain.AbstractVo;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * MQ Message 최상위 Object
@@ -13,7 +14,10 @@ import lombok.Setter;
 @JsonInclude(Include.NON_NULL)
 @Getter
 @Setter
+@ToString
 public abstract class BaseMessage extends AbstractVo {
+
+	private static final long serialVersionUID = -1803092029955861057L;
 
 	@JsonIgnore
 	private MessageHeaders headers;

@@ -7,6 +7,8 @@ import java.util.HashMap;
  */
 public class MessageHeaders extends HashMap<String, Object> {
 
+	private static final long serialVersionUID = 6493022641314884104L;
+
 	/** 메시지 ID */
 	public final static String MESSAGE_ID 				= "messageId";
 	/** 요청 시간 */

@@ -1,5 +1,6 @@
 package com.nexmore.rnd.service.listener;
 
+import com.nexmore.rnd.common.domain.TestVo;
 import com.nexmore.rnd.common.domain.message.BaseMessage;
 import com.nexmore.rnd.common.domain.message.MessageHeaders;
 import com.nexmore.rnd.common.exception.AbstractRndException;
@@ -30,11 +31,11 @@ public class TestMQListener {
 	 * 테스트용 MQ 리스너
 	 */
 	@RabbitListener(containerFactory = "messageListenerContainerTest", queues = { QueueInterface.RND_SERVICE_TEST })
-	public void handleTestMQListener(final BaseMessage message, @Headers MessageHeaders headers) {
-		rabbitListenerTemplate.excute(message, headers, new ExecuteHandler() {
+	public void handleTestMQListener(final TestVo requestVo/*, @Headers MessageHeaders headers*/) {
+		rabbitListenerTemplate.excute(requestVo, /*headers, */new ExecuteHandler() {
 			@Override
 			public void execute() {
-				doServiceProcess(message);
+				doServiceProcess(requestVo);
 			}
 
 			@Override

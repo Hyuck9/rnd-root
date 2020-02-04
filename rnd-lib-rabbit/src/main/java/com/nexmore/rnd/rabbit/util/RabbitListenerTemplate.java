@@ -21,7 +21,7 @@ public class RabbitListenerTemplate {
 		this.rabbitTemplate = rabbitTemplate;
 	}
 
-	public <T> void excute(BaseMessage request, MessageHeaders headers, ExecuteHandler handler) {
+	public <T> void excute(BaseMessage request, /*MessageHeaders headers, */ExecuteHandler handler) {
 		// TODO: trace log 작성 -> RabbitTraceLogger.trace(flow, Status.IN, Objects.toString(headers.get("amqp_consumerQueue"), "N/A"), request);
 
 		Exception exception = null;

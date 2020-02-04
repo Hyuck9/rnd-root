@@ -11,5 +11,8 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public abstract class AbstractVo implements Serializable {
+
+	private static final long serialVersionUID = 8410158049835528294L;
+
 	// toStringExcludeFields 등 구현 해야할지 고민중
 }

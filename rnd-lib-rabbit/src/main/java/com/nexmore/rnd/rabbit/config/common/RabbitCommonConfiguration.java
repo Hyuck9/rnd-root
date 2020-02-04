@@ -22,8 +22,12 @@ import org.springframework.retry.support.RetryTemplate;
 @Import(PropertyPlaceHolderConfiguration.class)
 public class RabbitCommonConfiguration {
 
+	// 사용측 설정 가능한 값
+	@Value("${mq.connectionCacheSize:2}")
+	int connectionCacheSize;
+
 	/** MQ 주소 */
-	@Value("${mq.addresses:localhost:15672}")
+	@Value("${mq.addresses}")
 	String addresses;
 
 	/** user name */
@@ -33,6 +37,10 @@ public class RabbitCommonConfiguration {
 	/** password */
 	@Value("${mq.password:admin}")
 	String password;
+
+	/** virtual Host */
+	@Value("${mq.virtualHost}")
+	String virtualHost;
 
 	/** 초기 간격 값 */
 	@Value("${mq.retry.initialInterval:500}")
@@ -46,6 +54,10 @@ public class RabbitCommonConfiguration {
 	@Value("${mq.retry.maxInterval:10000}")
 	long maxInterval;
 
+	@Value("${mq.cacheMode:channel}")
+	String cacheMode;
+
+
 	/**
 	 * RabbitMQ 연결 및 관리 Interface
 	 * @return CachingConnectionFactory (Spring 에서 제공하는 ConnectionFactory 객체)
@@ -56,6 +68,22 @@ public class RabbitCommonConfiguration {
 		connectionFactory.setAddresses(addresses);
 		connectionFactory.setUsername(username);
 		connectionFactory.setPassword(password);
+		connectionFactory.setVirtualHost(virtualHost);
+
+		log.debug("##### RabbitConnectionFactory Config : Begin #####");
+		log.debug("##### RabbitConnectionFactory CacheMode : {} #####", cacheMode);
+		if ( "connection".equals(cacheMode) ) {
+			log.debug("##### CachingConnectionFactory Connection Cache Size : {} #####", connectionCacheSize);
+			log.debug("##### CachingConnectionFactoryPublisher Confirms : true #####");
+			connectionFactory.setCacheMode(CachingConnectionFactory.CacheMode.CONNECTION);
+			connectionFactory.setConnectionCacheSize(connectionCacheSize);
+			connectionFactory.setPublisherConfirmType(CachingConnectionFactory.ConfirmType.CORRELATED);
+		} else {
+			log.debug("##### CachingConnectionFactoryPublisher Confirms : false #####");
+			connectionFactory.setPublisherConfirmType(CachingConnectionFactory.ConfirmType.NONE);
+		}
+		log.debug("##### RabbitConnectionFactory Config : End #####");
+
 		return connectionFactory;
 	}
 
