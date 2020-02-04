@@ -2,7 +2,6 @@ package com.nexmore.rnd.service.listener;
 
 import com.nexmore.rnd.common.domain.TestVo;
 import com.nexmore.rnd.common.domain.message.BaseMessage;
-import com.nexmore.rnd.common.domain.message.MessageHeaders;
 import com.nexmore.rnd.common.exception.AbstractRndException;
 import com.nexmore.rnd.rabbit.queue.QueueInterface;
 import com.nexmore.rnd.rabbit.queue.RouteKeyInterface;
@@ -11,6 +10,7 @@ import com.nexmore.rnd.rabbit.util.RabbitListenerTemplate.*;
 import com.nexmore.rnd.service.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.stereotype.Component;
 
@@ -31,8 +31,8 @@ public class TestMQListener {
 	 * 테스트용 MQ 리스너
 	 */
 	@RabbitListener(containerFactory = "messageListenerContainerTest", queues = { QueueInterface.RND_SERVICE_TEST })
-	public void handleTestMQListener(final TestVo requestVo/*, @Headers MessageHeaders headers*/) {
-		rabbitListenerTemplate.excute(requestVo, /*headers, */new ExecuteHandler() {
+	public void handleTestMQListener(final TestVo requestVo, @Headers MessageHeaders headers) {
+		rabbitListenerTemplate.excute(requestVo, headers, new ExecuteHandler() {
 			@Override
 			public void execute() {
 				doServiceProcess(requestVo);
@@ -46,8 +46,8 @@ public class TestMQListener {
 		});
 	}
 
-	private void doServiceProcess(BaseMessage message) {
-		testService.startTest(message);
+	private void doServiceProcess(TestVo requestVo) {
+		testService.startTest(requestVo);
 	}
 
 }

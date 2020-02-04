@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Slf4j
 public class MessageUtil {
 
-	public static <T extends BaseMessage> T initMessage(T message) {
+	public static <T extends BaseMessage> void initMessage(T message) {
 		MessageHeaders headers = new MessageHeaders();
 		headers.put(MessageHeaders.MESSAGE_ID, StringUtil.getMessageId());
 		headers.put(MessageHeaders.REQUEST_TIME, LocalDateTime.now());
@@ -25,8 +25,6 @@ public class MessageUtil {
 
 		message.setHeaders(headers);
 		message.setMessageId( String.valueOf(headers.get(MessageHeaders.MESSAGE_ID)) );
-
-		return message;
 	}
 
 	/**

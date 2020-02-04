@@ -32,8 +32,8 @@ public class TestService {
 		testVo.setMessage("TEST");
 		testVo.setServiceId("TEST_SERVICE_ID");
 		rabbitTemplate.convertAndSend(RouteKeyInterface.RND_SERVICE_TEST, testVo);
-		log.debug(mariaMapper.getNow());
-		log.debug(oracleMapper.getNow());
+//		log.debug(mariaMapper.getNow());
+//		log.debug(oracleMapper.getNow());
 	}
 
 }

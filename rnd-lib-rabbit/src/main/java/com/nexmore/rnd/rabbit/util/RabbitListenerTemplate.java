@@ -1,7 +1,6 @@
 package com.nexmore.rnd.rabbit.util;
 
 import com.nexmore.rnd.common.domain.message.BaseMessage;
-import com.nexmore.rnd.common.domain.message.MessageHeaders;
 import com.nexmore.rnd.common.exception.AbstractRndException;
 import com.nexmore.rnd.common.exception.RndBizException;
 import com.nexmore.rnd.common.exception.RndSysException;
@@ -9,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.messaging.MessageHeaders;
 import org.springframework.stereotype.Component;
 
 @Slf4j
@@ -21,7 +21,7 @@ public class RabbitListenerTemplate {
 		this.rabbitTemplate = rabbitTemplate;
 	}
 
-	public <T> void excute(BaseMessage request, /*MessageHeaders headers, */ExecuteHandler handler) {
+	public <T> void excute(BaseMessage request, MessageHeaders headers, ExecuteHandler handler) {
 		// TODO: trace log 작성 -> RabbitTraceLogger.trace(flow, Status.IN, Objects.toString(headers.get("amqp_consumerQueue"), "N/A"), request);
 
 		Exception exception = null;

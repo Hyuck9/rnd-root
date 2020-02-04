@@ -1,5 +1,6 @@
 package com.nexmore.rnd.service.service;
 
+import com.nexmore.rnd.common.domain.TestVo;
 import com.nexmore.rnd.common.domain.message.BaseMessage;
 import com.nexmore.rnd.service.mapper.mariadb.MariaMapper;
 import com.nexmore.rnd.service.mapper.oracle.OracleMapper;
@@ -23,10 +24,10 @@ public class TestService {
 		this.oracleMapper = oracleMapper;
 	}
 
-	public void startTest(BaseMessage message) {
+	public void startTest(TestVo requestVo) {
 		log.debug(mariaMapper.getNow());
 		log.debug(oracleMapper.getNow());
-		log.debug(message.toString());
+		log.debug(requestVo.toString());
 	}
 
 }
