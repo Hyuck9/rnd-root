@@ -14,7 +14,6 @@ import lombok.ToString;
 @JsonInclude(Include.NON_NULL)
 @Getter
 @Setter
-@ToString
 public abstract class BaseMessage extends AbstractVo {
 
 	private static final long serialVersionUID = -1803092029955861057L;
