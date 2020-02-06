@@ -39,6 +39,7 @@ project(':rnd-batch') {
         compile project(':rnd-common')
         compile project(':rnd-lib-database')
         compile project(':rnd-lib-rabbit')
+        compile project(':rnd-lib-redis')
     }
 }
 
@@ -47,6 +48,7 @@ project(':rnd-service-master') {
         compile project(':rnd-common')
         compile project(':rnd-lib-database')
         compile project(':rnd-lib-rabbit')
+        compile project(':rnd-lib-redis')
     }
 }
 
@@ -55,6 +57,7 @@ project(':rnd-web') {
         compile project(':rnd-common')
         compile project(':rnd-lib-database')
         compile project(':rnd-lib-rabbit')
+        compile project(':rnd-lib-redis')
     }
 }
 
@@ -65,6 +68,12 @@ project(':rnd-lib-database') {
 }
 
 project(':rnd-lib-rabbit') {
+    dependencies {
+        compile project(':rnd-common')
+    }
+}
+
+project(':rnd-lib-redis') {
     dependencies {
         compile project(':rnd-common')
     }
