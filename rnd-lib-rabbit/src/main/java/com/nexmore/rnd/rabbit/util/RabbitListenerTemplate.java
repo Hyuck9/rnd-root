@@ -43,7 +43,7 @@ public class RabbitListenerTemplate {
 			ErrorResponse errorResponse = handler.errorResponse(rndEx);
 
 			if ( errorResponse != null && errorResponse.getBaseMessage() != null ) {
-				this.rabbitTemplate.convertAndSend(errorResponse.getRouteKey(), errorResponse.getBaseMessage());
+				this.rabbitTemplate.convertAndSend(errorResponse.getRoutingKey(), errorResponse.getBaseMessage());
 				// TODO: trace log 작성
 			} else {
 				// TODO: trace log 작성
@@ -70,7 +70,7 @@ public class RabbitListenerTemplate {
 	@Data
 	@AllArgsConstructor
 	public static class ErrorResponse {
-		private String routeKey;
+		private String routingKey;
 		private BaseMessage baseMessage;
 	}
 

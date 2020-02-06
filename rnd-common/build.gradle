@@ -8,6 +8,10 @@ jar {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.apache.commons:commons-lang3:3.8.1'
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.4'
+//    compile group: 'commons-configuration', name: 'commons-configuration', version: '1.10'
+
+
     compile 'com.google.guava:guava:26.0-jre'
 
     testCompile group: 'junit', name: 'junit', version: '4.12'

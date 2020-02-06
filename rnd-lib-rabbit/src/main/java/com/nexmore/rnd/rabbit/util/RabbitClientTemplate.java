@@ -19,11 +19,11 @@ public class RabbitClientTemplate {
 		this.rabbitTemplate = rabbitTemplate;
 	}
 
-	public void convertAndSend(String routeKey, BaseMessage baseMessage) {
+	public void convertAndSend(String routingKey, BaseMessage baseMessage) {
 		Exception exception = null;
 
 		try {
-			rabbitTemplate.convertAndSend(routeKey, baseMessage);
+			rabbitTemplate.convertAndSend(routingKey, baseMessage);
 		} catch (Exception e) {
 			exception = e;
 			log.error(e.getMessage(), e);
@@ -41,30 +41,30 @@ public class RabbitClientTemplate {
 	 * Direct Reply-To
 	 * Reply Timeout 이 발생할 경우
 	 * Response Timeout Runtime Exception 발생
-	 * @param routeKey routeKey
+	 * @param routingKey routingKey
 	 * @param object message
 	 * @return <T>
 	 */
-	public <T> T convertSendAndReceive(String routeKey, Object object) {
-		return this.convertSendAndReceive(routeKey, object, DEFAULT_REPLY_TIMEOUT);
+	public <T> T convertSendAndReceive(String routingKey, Object object) {
+		return this.convertSendAndReceive(routingKey, object, DEFAULT_REPLY_TIMEOUT);
 	}
 
 	/**
 	 * Direct Reply-To
 	 * 사용자 임의 ReplyTimeout 설정 가능
-	 * @param routeKey routeKey
+	 * @param routingKey routingKey
 	 * @param object message
 	 * @param replyTimeout Reply Timeout
 	 * @return T
 	 */
 	@SuppressWarnings("unchecked")
-	public <T> T convertSendAndReceive(String routeKey, Object object, long replyTimeout) {
+	public <T> T convertSendAndReceive(String routingKey, Object object, long replyTimeout) {
 		Exception exception = null;
 		T receiveObject = null;
 
 		try {
 			rabbitTemplate.setReplyTimeout(replyTimeout);
-			receiveObject = (T) rabbitTemplate.convertSendAndReceive(routeKey, object);
+			receiveObject = (T) rabbitTemplate.convertSendAndReceive(routingKey, object);
 		} catch (Exception e) {
 			exception = e;
 			log.error(e.getMessage(), e);

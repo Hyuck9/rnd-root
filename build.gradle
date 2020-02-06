@@ -50,6 +50,14 @@ project(':rnd-service-master') {
     }
 }
 
+project(':rnd-web') {
+    dependencies {
+        compile project(':rnd-common')
+        compile project(':rnd-lib-database')
+        compile project(':rnd-lib-rabbit')
+    }
+}
+
 project(':rnd-lib-database') {
     dependencies {
         compile project(':rnd-common')
