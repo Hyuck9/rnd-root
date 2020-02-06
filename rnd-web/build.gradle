@@ -1,0 +1,16 @@
+apply plugin: 'war'
+
+bootWar {
+    enabled = false
+}
+war {
+    enabled = true
+}
+
+dependencies {
+    implementation ('org.springframework.boot:spring-boot-starter-web') {
+        exclude group: 'org.apache.tomcat.embed'
+    }
+
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+}
