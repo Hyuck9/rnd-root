@@ -1,11 +1,10 @@
 package com.nexmore.rnd.web.support;
 
 import com.nexmore.rnd.common.domain.TestVo;
-import com.nexmore.rnd.common.domain.code.ExceptionConstant;
 import com.nexmore.rnd.common.domain.message.BaseMessage;
 import com.nexmore.rnd.common.domain.message.MessageHeaders;
 import com.nexmore.rnd.common.util.MessageUtil;
-import com.nexmore.rnd.rabbit.util.RabbitClientTemplate;
+import com.nexmore.rnd.lib.rabbit.util.RabbitClientTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;

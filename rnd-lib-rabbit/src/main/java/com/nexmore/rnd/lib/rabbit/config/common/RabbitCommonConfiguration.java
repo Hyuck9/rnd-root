@@ -1,9 +1,9 @@
-package com.nexmore.rnd.rabbit.config.common;
+package com.nexmore.rnd.lib.rabbit.config.common;
 
 import com.nexmore.rnd.common.annotation.SelectedConfiguration;
 import com.nexmore.rnd.common.config.PropertyPlaceHolderConfiguration;
-import com.nexmore.rnd.rabbit.message.converter.RndMessageConverter;
-import com.nexmore.rnd.rabbit.queue.RouteKeyInterface;
+import com.nexmore.rnd.lib.rabbit.message.converter.RndMessageConverter;
+import com.nexmore.rnd.lib.rabbit.queue.RouteKeyInterface;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;

@@ -1,4 +1,4 @@
-package com.nexmore.rnd.rabbit.util;
+package com.nexmore.rnd.lib.rabbit.util;
 
 import com.nexmore.rnd.common.domain.message.BaseMessage;
 import com.nexmore.rnd.common.exception.AbstractRndException;

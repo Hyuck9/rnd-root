@@ -1,4 +1,4 @@
-package com.nexmore.rnd.db.annotation;
+package com.nexmore.rnd.lib.db.annotation;
 
 
 import java.lang.annotation.ElementType;

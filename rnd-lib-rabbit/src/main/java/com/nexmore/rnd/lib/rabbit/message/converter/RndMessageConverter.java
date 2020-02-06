@@ -1,4 +1,4 @@
-package com.nexmore.rnd.rabbit.message.converter;
+package com.nexmore.rnd.lib.rabbit.message.converter;
 
 import com.nexmore.rnd.common.domain.message.BaseMessage;
 import lombok.extern.slf4j.Slf4j;

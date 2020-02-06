@@ -1,7 +1,7 @@
-package com.nexmore.rnd.rabbit.config;
+package com.nexmore.rnd.lib.rabbit.config;
 
 import com.nexmore.rnd.common.annotation.SelectedConfiguration;
-import com.nexmore.rnd.rabbit.config.common.RabbitCommonConfiguration;
+import com.nexmore.rnd.lib.rabbit.config.common.RabbitCommonConfiguration;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

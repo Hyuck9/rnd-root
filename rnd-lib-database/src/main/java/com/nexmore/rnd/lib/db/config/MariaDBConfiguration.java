@@ -1,6 +1,6 @@
-package com.nexmore.rnd.db.config;
+package com.nexmore.rnd.lib.db.config;
 
-import com.nexmore.rnd.db.annotation.RndMapper;
+import com.nexmore.rnd.lib.db.annotation.RndMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;

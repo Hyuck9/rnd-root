@@ -1,4 +1,4 @@
-package com.nexmore.rnd.rabbit.queue;
+package com.nexmore.rnd.lib.rabbit.queue;
 
 /**
  * RabbitMQ route key 정의

@@ -3,10 +3,9 @@ package com.nexmore.rnd.batch.service;
 import com.nexmore.rnd.batch.mapper.mariadb.MariaMapper;
 import com.nexmore.rnd.batch.mapper.oracle.OracleMapper;
 import com.nexmore.rnd.common.domain.TestVo;
-import com.nexmore.rnd.common.domain.message.BaseMessage;
 import com.nexmore.rnd.common.util.MessageUtil;
-import com.nexmore.rnd.rabbit.queue.RouteKeyInterface;
-import com.nexmore.rnd.rabbit.util.RabbitClientTemplate;
+import com.nexmore.rnd.lib.rabbit.queue.RouteKeyInterface;
+import com.nexmore.rnd.lib.rabbit.util.RabbitClientTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
